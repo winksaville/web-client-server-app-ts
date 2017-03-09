@@ -2,7 +2,7 @@
  * Test nop module
  */
 import { Expect, Test } from 'alsatian';
-import nop = require('./nop');
+import nop = require('../../dist/common/nop');
 
 export class NopTests {
   @Test('test nop type is function')
