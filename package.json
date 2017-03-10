@@ -14,12 +14,12 @@
     "_build:server": "tsc -p src/server/tsconfig.json",
     "_build:server.spec": "tsc -p src/server/tsconfig.spec.json",
     "_build:client": "tsc -p src/client/tsconfig.json && webpack dist/client/client.js dist/client/bundle.js",
-    "_build:client.spec": "# No client.spec yet",
+    "_build:client.spec": "tsc -p src/client/tsconfig.spec.json",
     "_build": "yarn _build:common && yarn _build:server && yarn _build:client",
     "_build:spec": "yarn _build:common.spec && yarn _build:server.spec && yarn _build:client.spec",
     "_test:common": "alsatian 'build/common/**/*.spec.js' --tap",
     "_test:server": "alsatian 'build/server/**/*.spec.js' --tap",
-    "_test:client": "# No _test:client yet",
+    "_test:client": "alsatian 'build/client/**/*.spec.js' --tap",
     "pretest": "yarn _build && yarn _build:spec",
     "test": "yarn _test:common && yarn _test:server && yarn _test:client",
     "test:travis": "yarn test",
@@ -28,14 +28,16 @@
   },
   "devDependencies": {
     "@types/mithril": "github:spacejack/mithril.d.ts",
+    "@types/node": "^7.0.8",
     "@types/selenium-webdriver": "^2.53.40",
     "alsatian": "^1.2.1",
     "typescript": "^2.2.1",
-    "webpack": "^2.2.1",
-    "selenium-webdriver": "^3.1.0"
+    "webpack": "^2.2.1"
   },
   "dependencies": {
     "debug": "^2.6.1",
-    "mithril": "^1.0.1"
+    "mithril": "^1.0.1",
+    "node": "^0.0.0",
+    "selenium-webdriver": "^3.1.0"
   }
 }
