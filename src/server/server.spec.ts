@@ -17,7 +17,7 @@ export class ServerTests {
     console.log('setupFixture:+');
 
     // Start the server
-    this.server = child.exec('node build/server.js');
+    this.server = child.spawn('node', [ 'build/server.js' ]);
 
     console.log('setupFixture:+');
   }
