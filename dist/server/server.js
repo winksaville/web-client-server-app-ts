@@ -28,7 +28,7 @@ var http_server = http.createServer(function (req, res) {
                 'charset': 'UTF-8'
             });
             // Send bundle.js as the content
-            fs.createReadStream('./build/bundle.js').pipe(res);
+            fs.createReadStream('./dist/client/bundle.js').pipe(res);
             break;
         }
         default: {

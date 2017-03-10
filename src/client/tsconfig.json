@@ -2,9 +2,9 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "declaration": true,
-    "outDir": "../../dist/server"
+    "outDir": "../../dist/client"
   },
   "files": [
-    "server.ts"
+    "client.ts"
   ]
 }

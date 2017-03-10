@@ -32,7 +32,7 @@ const http_server = http.createServer((req: http.IncomingMessage, res: http.Serv
       });
 
       // Send bundle.js as the content
-      fs.createReadStream('./build/bundle.js').pipe(res)
+      fs.createReadStream('./dist/client/bundle.js').pipe(res)
       break;
     }
     default: {
