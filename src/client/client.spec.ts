@@ -76,6 +76,7 @@ export class ClientTests {
       console.log(`testWdNop caught e=${e}`);
       Expect(false).toBe(true); // Always fail.
     }
+    Expect(false).toBe(true); // Always fail.
 
     debug('testWdNop:-');
   }
