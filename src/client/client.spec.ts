@@ -68,8 +68,13 @@ export class ClientTests {
   public async testWdNop() {
     debug('testWdNop:+');
 
-    let button = await this.driver.findElement(By.id('invokeNop'));
-    button.click();
+    try {
+      let button = await this.driver.findElement(By.id('invokeNop'));
+      button.click();
+    } catch (e) {
+      console.log(`testWdNop caught e=${e}`);
+      Expect(false).toBe(true); // Always fail.
+    }
 
     debug('testWdNop:-');
   }
