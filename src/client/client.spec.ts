@@ -34,7 +34,7 @@ export class ClientTests {
     // Start the server
     this.server = await child.spawn('node', [ 'dist/server/server.js' ], {
       env: {
-        DEBUG: 'my-server'
+        DEBUG: 'server'
       }
     });
     this.server.stdout.on('data', (data) => {

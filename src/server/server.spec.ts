@@ -21,7 +21,7 @@ export class ServerTests {
     // Start the server
     this.server = child.spawn('node', [ 'dist/server/server.js' ], {
       env: {
-        DEBUG: 'my-server'
+        DEBUG: 'server'
       }
     });
 

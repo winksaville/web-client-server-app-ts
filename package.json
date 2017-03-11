@@ -18,10 +18,10 @@
     "_build": "yarn _build:common && yarn _build:server && yarn _build:client",
     "_build:spec": "yarn _build:common.spec && yarn _build:server.spec && yarn _build:client.spec",
     "_test:common": "DEBUG=common.spec,nop.spec alsatian 'build/common/**/*.spec.js' --tap",
-    "_test:server": "alsatian 'build/server/**/*.spec.js' --tap",
-    "_test:client": "alsatian 'build/client/**/*.spec.js' --tap",
+    "_test:server": "DEBUG=server.spec alsatian 'build/server/**/*.spec.js' --tap",
+    "_test:client": "DEBUG=client.spec alsatian 'build/client/**/*.spec.js' --tap",
     "pretest": "yarn _build && yarn _build:spec",
-    "test": "yarn _test:common && yarn _test:server && yarn _test:client",
+    "test": "tree build && tree dist && yarn _test:common && yarn _test:server && yarn _test:client",
     "test:travis": "yarn test",
     "predev": "yarn _build",
     "dev": "DEBUG=server node dist/server/server.js"
