@@ -7,6 +7,7 @@ addons:
       - google-chrome
     packages:
       - google-chrome-stable
+      - tree
 
 language: node_js
 
