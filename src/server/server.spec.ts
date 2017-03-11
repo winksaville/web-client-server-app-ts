@@ -8,35 +8,41 @@ import {
   TeardownFixture,
 } from 'alsatian';
 
+const debug = require('debug')('server.spec');
+
 @TestFixture('Server tests')
 export class ServerTests {
   private server: child.ChildProcess;
 
   @SetupFixture
   public setupFixture() {
-    console.log('setupFixture:+');
+    debug('setupFixture:+');
 
     // Start the server
-    this.server = child.spawn('node', [ 'build/server.js' ]);
+    this.server = child.spawn('node', [ 'dist/server/server.js' ], {
+      env: {
+        DEBUG: 'my-server'
+      }
+    });
 
-    console.log('setupFixture:+');
+    debug('setupFixture:-');
   }
 
   @TeardownFixture
   public teardownFixture() {
-    console.log('teardownFixture:+');
+    debug('teardownFixture:+');
 
     this.server.kill();
 
-    console.log('teardownFixture:-');
+    debug('teardownFixture:-');
   }
 
   @TestCase(0, 1)
   public testNothing(param1: number, param2: number) {
-    console.log('testNothing:+');
+    debug('testNothing:+');
 
     Expect(param1 <= param2).toBe(true);
 
-    console.log('testNothing:-');
+    debug('testNothing:-');
   }
 }
