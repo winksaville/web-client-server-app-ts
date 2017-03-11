@@ -1,7 +1,7 @@
 import * as child from 'child_process';
 
 import {
-  //Expect,
+  Expect,
   TestFixture,
   AsyncSetupFixture,
   AsyncTeardownFixture,
