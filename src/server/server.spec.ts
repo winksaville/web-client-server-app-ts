@@ -19,11 +19,12 @@ export class ServerTests {
     debug('setupFixture:+');
 
     // Start the server
-    this.server = child.spawn('node', [ './dist/server/server.js' ], {
-      env: {
-        DEBUG: 'server'
-      }
-    });
+    this.server = child.spawn('node', [ './dist/server/server.js' ]);
+    //this.server = child.spawn('node', [ './dist/server/server.js' ], {
+    //  env: {
+    //    DEBUG: 'server'
+    //  }
+    //});
 
     debug('setupFixture:-');
   }
