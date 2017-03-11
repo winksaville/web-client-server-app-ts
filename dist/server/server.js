@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var http = require("http");
 var fs = require("fs");
 var nop = require("../../dist/common/nop");
-var debug = require('debug')('my-server');
+var debug = require('debug')('server');
 var PORT = 3000;
 // Create a server and the handler for a few requests
 var http_server = http.createServer(function (req, res) {

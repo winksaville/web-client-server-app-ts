@@ -24,7 +24,7 @@
     "test": "yarn _test:common && yarn _test:server && yarn _test:client",
     "test:travis": "yarn test",
     "predev": "yarn _build",
-    "dev": "DEBUG=my-server node dist/server/server.js"
+    "dev": "DEBUG=server node dist/server/server.js"
   },
   "devDependencies": {
     "@types/mithril": "github:spacejack/mithril.d.ts",

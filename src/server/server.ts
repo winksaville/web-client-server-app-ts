@@ -2,7 +2,7 @@ import * as http from 'http';
 import * as fs from 'fs';
 import nop = require('../../dist/common/nop');
 
-const debug = require('debug')('my-server');
+const debug = require('debug')('server');
 
 const PORT: number = 3000;
 
