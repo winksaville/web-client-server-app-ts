@@ -32,12 +32,13 @@ export class ClientTests {
         .build();
 
     // Start the server
-    this.server = await child.spawn('node', [ './dist/server/server.js' ], {
-      env: {
-        DEBUG: 'server'
-      },
-      shell: true
-    });
+    this.server = await child.spawn('node', [ './dist/server/server.js' ]);
+    //this.server = await child.spawn('node', [ './dist/server/server.js' ], {
+    //  env: {
+    //    DEBUG: 'server'
+    //  },
+    //  shell: true
+    //});
     this.server.stdout.on('data', (data) => {
                  debug(`server.stdout: ${data}`);
     });
