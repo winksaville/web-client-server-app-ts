@@ -23,5 +23,8 @@ Install using `yarn install`
 ## Building and running tests
 `yarn test`
 
+## For development with 'auto' rebuilding and restart server
+`yarn dev`
+
 ## License
 Apache 2.0.

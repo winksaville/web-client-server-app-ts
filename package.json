@@ -23,14 +23,15 @@
     "pretest": "yarn _build && yarn _build:spec",
     "test": "tree build && tree dist && yarn _test:common && yarn _test:server && yarn _test:client",
     "test:travis": "yarn test",
-    "predev": "yarn _build",
-    "dev": "DEBUG=server node dist/server/server.js"
+    "predev": "tsc -p utils/tsconfig.json",
+    "dev": "node build/start-dev.js"
   },
   "devDependencies": {
     "@types/mithril": "github:spacejack/mithril.d.ts",
     "@types/node": "^7.0.8",
     "@types/selenium-webdriver": "^2.53.40",
     "alsatian": "^1.2.1",
+    "nodemon": "^1.11.0",
     "typescript": "^2.2.1",
     "webpack": "^2.2.1"
   },
