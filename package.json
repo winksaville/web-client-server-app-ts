@@ -22,7 +22,8 @@
     "_test:client": "DEBUG=client.spec alsatian 'build/client/**/*.spec.js'",
     "pretest": "yarn _build && yarn _build:spec",
     "test": "yarn _test:common && yarn _test:server && yarn _test:client",
-    "test:travis": "yarn test",
+    "test:coverage": "nyc --reporter=lcov --reporter=html yarn test && nyc report",
+    "test:travis": "yarn test:coverage",
     "predev": "tsc -p utils/tsconfig.json",
     "dev": "node build/start-dev.js"
   },
@@ -32,6 +33,7 @@
     "@types/selenium-webdriver": "^2.53.40",
     "alsatian": "^1.2.1",
     "nodemon": "^1.11.0",
+    "nyc": "^10.1.2",
     "typescript": "^2.2.1",
     "webpack": "^2.2.1"
   },
@@ -40,5 +42,11 @@
     "mithril": "^1.0.1",
     "node": "^0.0.0",
     "selenium-webdriver": "^3.1.0"
+  },
+  "nyc": {
+    "exclude": [
+      "build",
+      "src/**/*.spec.ts"
+    ]
   }
 }
