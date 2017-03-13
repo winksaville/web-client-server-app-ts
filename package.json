@@ -24,6 +24,7 @@
     "test": "yarn _test:common && yarn _test:server && yarn _test:client",
     "test:coverage": "nyc --reporter=lcov --reporter=html yarn test && nyc report",
     "test:travis": "yarn test:coverage",
+    "test:lint": "tslint -c tslint.json 'src/**/*.ts' --exclude 'src/**/*.d.ts'",
     "predev": "tsc -p utils/tsconfig.json",
     "dev": "node build/start-dev.js"
   },
@@ -34,6 +35,7 @@
     "alsatian": "^1.2.1",
     "nodemon": "^1.11.0",
     "nyc": "^10.1.2",
+    "tslint": "^4.5.1",
     "typescript": "^2.2.1",
     "webpack": "^2.2.1"
   },
