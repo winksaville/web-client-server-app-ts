@@ -1,9 +1,9 @@
 {
   "name": "web-client-server-app-ts",
   "author": "Wink Saville",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": false,
-  "license": "Apache-2.0",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/winksaville/web-client-server-app-ts"

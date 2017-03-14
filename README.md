@@ -26,5 +26,5 @@ Install using `yarn install`
 ## For development with 'auto' rebuilding and restart server
 `yarn dev`
 
-## License
-Apache 2.0.
+## License (Contact me if another license is desired)
+MIT
