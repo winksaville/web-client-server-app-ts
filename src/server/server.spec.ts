@@ -1,49 +1,51 @@
-import * as child from 'child_process';
+import * as child from "child_process";
 
 import {
   Expect,
-  TestCase,
-  TestFixture,
   SetupFixture,
   TeardownFixture,
-} from 'alsatian';
+  TestCase,
+  TestFixture,
+} from "alsatian";
 
-const debug = require('debug')('server.spec');
+import * as debugModule from "debug";
 
-@TestFixture('Server tests')
+const debug = debugModule("server.spec");
+
+@TestFixture("Server tests")
 export class ServerTests {
   private server: child.ChildProcess;
 
   @SetupFixture
   public setupFixture() {
-    debug('setupFixture:+');
+    debug("setupFixture:+");
 
     // Start the server
-    this.server = child.spawn('node', [ './dist/server/server.js' ], {
+    this.server = child.spawn("node", [ "./dist/server/server.js" ], {
       env: {
-        DEBUG: 'server'
+        DEBUG: "server"
       },
       shell: true
     });
 
-    debug('setupFixture:-');
+    debug("setupFixture:-");
   }
 
   @TeardownFixture
   public teardownFixture() {
-    debug('teardownFixture:+');
+    debug("teardownFixture:+");
 
     this.server.kill();
 
-    debug('teardownFixture:-');
+    debug("teardownFixture:-");
   }
 
   @TestCase(0, 1)
   public testNothing(param1: number, param2: number) {
-    debug('testNothing:+');
+    debug("testNothing:+");
 
     Expect(param1 <= param2).toBe(true);
 
-    debug('testNothing:-');
+    debug("testNothing:-");
   }
 }
