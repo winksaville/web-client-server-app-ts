@@ -17,9 +17,9 @@
     "_build:client.spec": "tsc -p src/client/tsconfig.spec.json",
     "_build": "yarn _build:common && yarn _build:server && yarn _build:client",
     "_build:spec": "yarn _build:common.spec && yarn _build:server.spec && yarn _build:client.spec",
-    "_test:common": "DEBUG=common.spec,nop.spec alsatian 'build/common/**/*.spec.js'",
-    "_test:server": "DEBUG=server.spec alsatian 'build/server/**/*.spec.js'",
-    "_test:client": "DEBUG=client.spec alsatian 'build/client/**/*.spec.js'",
+    "_test:common": "DEBUG=common.spec,nop.spec alsatian 'build/common/**/*.spec.js' --tap",
+    "_test:server": "DEBUG=server.spec alsatian 'build/server/**/*.spec.js' --tap",
+    "_test:client": "DEBUG=client.spec alsatian 'build/client/**/*.spec.js' --tap",
     "pretest": "yarn _build && yarn _build:spec",
     "test": "yarn _test:common && yarn _test:server && yarn _test:client",
     "test:coverage": "nyc --reporter=lcov --reporter=html yarn test && nyc report",
@@ -29,6 +29,7 @@
     "dev": "node build/start-dev.js"
   },
   "devDependencies": {
+    "@types/debug": "^0.0.29",
     "@types/mithril": "github:spacejack/mithril.d.ts",
     "@types/node": "^7.0.8",
     "@types/selenium-webdriver": "^2.53.40",
