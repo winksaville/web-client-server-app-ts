@@ -20,7 +20,7 @@ test specification `src/common/nop.spec.ts`.
 ## Node module dependencies
 Install using `yarn install`
 
-## Building and running tests
+## Building and running tests, includes test coverage output
 `yarn test`
 
 ## For development with 'auto' rebuilding and restart server
