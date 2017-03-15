@@ -46,11 +46,5 @@
     "mithril": "^1.0.1",
     "node": "^0.0.0",
     "selenium-webdriver": "^3.1.0"
-  },
-  "nyc": {
-    "exclude": [
-      "build",
-      "src/**/*.spec.ts"
-    ]
   }
 }
