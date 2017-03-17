@@ -27,7 +27,8 @@
     "test": "yarn _test:full.with.coverage",
     "test:travis": "yarn test",
     "predev": "tsc -p utils/tsconfig.json",
-    "dev": "node build/start-dev.js"
+    "dev": "node build/start-dev.js",
+    "distclean": "rm -rf build/ node_modules/ coverage/ .nyc_output/ *.log"
   },
   "devDependencies": {
     "@types/debug": "^0.0.29",
