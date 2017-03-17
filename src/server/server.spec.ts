@@ -1,5 +1,5 @@
 import * as child from "child_process";
-import * as http from "http";
+import { httpGet } from "../common/spec.lib";
 
 import {
   AsyncSetupFixture,
@@ -10,7 +10,6 @@ import {
 } from "alsatian";
 
 import * as debugModule from "debug";
-
 const debug = debugModule("server.spec");
 
 const PORT = 3000;
@@ -18,43 +17,6 @@ const PORT = 3000;
 @TestFixture("Server tests")
 export class ServerTests {
   public server: child.ChildProcess;
-
-  public httpGet(httpPath: string): Promise<number> {
-    debug(`httpGet:+ httpPath='${httpPath}'`);
-    let promise = new Promise<number>((resolve, reject) => {
-      debug("httpGet.promise:+");
-      try {
-        let options = {
-          host: "localhost",
-          path: httpPath,
-          port: 3000,
-        };
-
-        http.request(options, (response) => {
-          debug("httpGet.response:+");
-          let str = "";
-
-          // Handle incoming data
-          response.on("data", (chunk) => {
-            debug(`httpGet.response: chunk=${chunk}`);
-            str += chunk;
-          });
-
-          // Handle end of data
-          response.on("end", () => {
-            debug(`httpGet.response: end ${response.statusCode}`);
-            resolve((response.statusCode) ? response.statusCode : 500);
-          });
-          debug("httpGet.response:-");
-        }).end();
-      } catch (err) {
-        reject(`err=${err}`);
-      }
-      debug("httpGet.promise:-");
-    });
-    debug("httpGet:-");
-    return promise;
-  }
 
   public async waitTillStarted(port: number, timeoutMs: number) {
     return new Promise<void>((resolve, reject) => {
@@ -112,7 +74,7 @@ export class ServerTests {
 
     // Get the root page
     debug("setupFixture: call httpGet '/'");
-    await this.httpGet("/")
+    await httpGet("localhost", PORT, "/")
                 .then((statusCode) => debug(`httpGet: '/' statusCode=${statusCode}`))
                 .catch((err) => debug(`httpGet: '/' ERR=${err}`));
 
@@ -132,7 +94,7 @@ export class ServerTests {
   public async testNop() {
     debug("testNop:+");
 
-    let retValue = await this.httpGet("/nop")
+    let retValue = await httpGet("localhost", PORT, "/nop")
       .then((statusCode) => {
         debug(`httpGet: '/nop' ${statusCode}`);
         return statusCode;

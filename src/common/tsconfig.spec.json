@@ -6,6 +6,7 @@
   },
   "files": [
     "nop.spec.ts",
-    "delay.spec.ts"
+    "delay.spec.ts",
+    "spec.lib.ts"
   ]
 }
