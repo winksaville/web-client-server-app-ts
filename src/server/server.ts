@@ -44,7 +44,7 @@ const httpServer = http.createServer((req: http.IncomingMessage, res: http.Serve
       });
 
       // Send bundle.js as the content
-      fs.createReadStream("./dist/client/bundle.js").pipe(res);
+      fs.createReadStream("./dist/client/bundle.nyc.js").pipe(res);
       break;
     }
     default: {
