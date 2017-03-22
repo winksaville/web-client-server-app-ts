@@ -76,17 +76,20 @@ export async function startServer(
     port: number,
     timeoutMs: number,
     serverPath: string): Promise<child.ChildProcess> {
+  debug("startServer:+");
   // Start the server
   let server = await child.spawn("node", [ serverPath ]);
 
   // Wait till server starts
   await waitTillStarted(server, port, timeoutMs)
       .then(() => {
-        debug("setupFixture: server started");
+        debug("startServer: server started");
       })
       .catch(() => {
         throw new Error(`setupFixture: server NOT started ${port}`);
       });
+
+  debug("startServer: continuing after started");
 
   server.stdout.on("data", (data) => {
     debug(`server.stdout: ${data}`);
@@ -101,5 +104,6 @@ export async function startServer(
     debug(`server: error ${err}`);
   });
 
+  debug("startServer:-");
   return server;
 }

@@ -27,10 +27,10 @@ export class ServerTests {
     this.server = await startServer(PORT, 5000, "./dist/server/server.js");
 
     // Get the root page
-    debug("setupFixture: call httpGet '/'");
-    await httpGet("localhost", PORT, "/")
-                .then((statusCode) => debug(`httpGet: '/' statusCode=${statusCode}`))
-                .catch((err) => debug(`httpGet: '/' ERR=${err}`));
+    //debug("setupFixture: call httpGet '/'");
+    //await httpGet("localhost", PORT, "/")
+    //            .then((statusCode) => debug(`httpGet: '/' statusCode=${statusCode}`))
+    //            .catch((err) => debug(`httpGet: '/' ERR=${err}`));
 
     debug("setupFixture:-");
   }

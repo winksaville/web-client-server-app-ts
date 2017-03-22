@@ -3,14 +3,15 @@ import * as http from "http";
 import nop = require("../../dist/common/nop");
 
 import * as debugModule from "debug";
-
 const debug = debugModule("server");
 
 const PORT: number = 3000;
 
+debug("server.ts loading");
+
 // Create a server and the handler for a few requests
 const httpServer = http.createServer((req: http.IncomingMessage, res: http.ServerResponse) => {
-  debug("req.url=%s res=%s", req.url, res);
+  debug(`req.url=${req.url} res=${res}`);
   switch (req.url) {
     case "/": {
       // Write the header
@@ -65,8 +66,10 @@ const httpServer = http.createServer((req: http.IncomingMessage, res: http.Serve
 
 // Start it listening on the desired port
 httpServer.listen(PORT, () => {
-  debug("Listening on: http://localhost:%s", PORT);
+  debug(`Listening on: http://localhost:${PORT}`);
 
   // Output to stdout a message that we're running
   process.stdout.write(`running PORT=${PORT}`);
 });
+
+debug("server.ts loading done");
