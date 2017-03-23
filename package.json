@@ -34,7 +34,7 @@
     "@types/debug": "^0.0.29",
     "@types/mithril": "github:spacejack/mithril.d.ts",
     "@types/node": "^7.0.8",
-    "@types/selenium-webdriver": "^2.53.40",
+    "@types/selenium-webdriver": "^3.0.0",
     "alsatian": "^1.2.1",
     "nodemon": "^1.11.0",
     "nyc": "^10.1.2",
@@ -46,7 +46,7 @@
     "debug": "^2.6.1",
     "mithril": "^1.0.1",
     "node": "^0.0.0",
-    "selenium-webdriver": "^3.1.0"
+    "selenium-webdriver": "^3.3.0"
   },
   "nyc": {
     "include": [

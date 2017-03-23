@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var m = require("mithril");
-var nop = require("../../dist/common/nop");
+const m = require("mithril");
+const nop = require("../../dist/common/nop");
 function invokeNop() {
     nop();
 }
