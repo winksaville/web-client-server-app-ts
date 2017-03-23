@@ -40,7 +40,7 @@ export class ClientTests {
     this.server = await startServer(PORT, 5000, "./dist/server/server.js");
 
     let options = new chrome.Options();
-    //options.addArguments("disable-background-timer-throttling");
+    // options.addArguments("disable-background-timer-throttling");
 
     if (verboseLogging) {
       debug("setupFixture: create server and driver with verbose logging");
