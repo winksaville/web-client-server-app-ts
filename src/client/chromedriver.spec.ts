@@ -46,7 +46,6 @@ export class ClientTests {
           .build();
     }
 
-
     debug("setupFixture:-");
   }
 
