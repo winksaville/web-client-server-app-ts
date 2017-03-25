@@ -25,6 +25,8 @@
     "_test:full.with.coverage": "nyc --reporter=lcov --reporter=html yarn _test:full && nyc report",
     "pretest": "yarn _build && yarn _build:spec",
     "test": "yarn _test:full.with.coverage",
+    "pretest:chromedriver": "tsc -p src/client/tsconfig.chromedriver.spec.json",
+    "test:chromedriver": "DEBUG=crhomedriver.spec alsatian 'build/client/chromedriver.spec.js' --tap",
     "test:travis": "yarn test",
     "predev": "tsc -p utils/tsconfig.json",
     "dev": "node build/start-dev.js",
