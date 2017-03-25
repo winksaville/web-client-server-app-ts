@@ -13,12 +13,11 @@ import {
 import * as chrome from "selenium-webdriver/chrome";
 
 import * as debugModule from "debug";
-
 const debug = debugModule("chromedriver.spec");
 
 const verboseLogging = true;
 
-@TestFixture("Client tests")
+@TestFixture("Chromedriver tests")
 export class ClientTests {
   private driver: WebDriver;
   private browserName = "chrome";
@@ -60,11 +59,8 @@ export class ClientTests {
     debug("teardownFixture:-");
   }
 
-  @AsyncTest("wd: nop which is defined in a TS file")
-  public async testWdNop() {
-    debug("testWdNop:+");
-
-
-    debug("testWdNop:-");
+  @AsyncTest("Do nothing test")
+  public async testDoNothing() {
+    debug("testDoNothing:#");
   }
 }
